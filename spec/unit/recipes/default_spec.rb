@@ -39,5 +39,16 @@ describe 'cb_my_cron::default' do
 	user: 'ksquires'
      )
     end
+    it 'creates cron_d[backups]' do
+      expect(chef_run).to create_cron_d('backups').with(
+        minute: '59',
+	hour: '23',
+	day: '*',
+	month: '*',
+	weekday: '*',
+	command: '/home/ksquires/bin/backups.sh > /var/log/backups.out 2>&1',
+	user: 'ksquires'
+     )
+    end
   end
 end
