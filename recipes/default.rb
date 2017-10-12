@@ -36,5 +36,5 @@ cron_d 'backups' do
   month '*'
   weekday '*'
   command '/home/ksquires/bin/backups.sh > /var/log/backups.out 2>&1'
-  user 'ksquires'
+  user 'root'
 end
