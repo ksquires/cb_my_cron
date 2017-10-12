@@ -17,7 +17,7 @@ end
 
 # somehow need to limit to run on role['primary_server']
 
-if node.role?('primary_server')
+if node.role?('primary_box')
   cron_d 'funds' do
     minute '14'
     hour '7'
