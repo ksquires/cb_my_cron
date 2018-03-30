@@ -7,11 +7,11 @@ provisioner:
   role_path: test/integration/roles/
 
 platforms:
-  - name: centos-7.4
+  - name: centos-7
 
 suites:
   - name: default
     run_list:
       - recipe[cb_my_cron::default]
-      - role[primary_server]
+      - role[primary_box]
     attributes:

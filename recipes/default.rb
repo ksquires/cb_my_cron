@@ -17,17 +17,17 @@ end
 
 # somehow need to limit to run on role['primary_server']
 
-if node.role?('primary_box')
-  cron_d 'funds' do
-    minute '14'
-    hour '7'
-    day '*'
-    month '*'
-    weekday '5'
-    command '/home/ksquires/ira/funds.sh > /tmp/funds.out 2>&1'
-    user 'ksquires'
-  end
-end
+# if node.role?('primary_box')
+#  cron_d 'funds' do
+#    minute '14'
+#    hour '7'
+#    day '*'
+#    month '*'
+#    weekday '5'
+#    command '/home/ksquires/ira/funds.sh > /tmp/funds.out 2>&1'
+#    user 'ksquires'
+#  end
+# end
 
 cron_d 'backups' do
   minute '59'
