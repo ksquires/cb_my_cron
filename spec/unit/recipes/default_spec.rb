@@ -28,17 +28,6 @@ describe 'cb_my_cron::default' do
       expect(chef_run).to start_service('crond')
     end
 
-    it 'creates cron_d[funds]' do
-      expect(chef_run).to create_cron_d('funds').with(
-        minute: '14',
-        hour: '7',
-        day: '*',
-        month: '*',
-        weekday: '5',
-        command: '/home/ksquires/ira/funds.sh > /tmp/funds.out 2>&1',
-        user: 'ksquires'
-     )
-    end
     it 'creates cron_d[backups]' do
       expect(chef_run).to create_cron_d('backups').with(
         minute: '59',
@@ -47,8 +36,8 @@ describe 'cb_my_cron::default' do
         month: '*',
         weekday: '*',
         command: '/home/ksquires/bin/backups.sh > /var/log/backups.out 2>&1',
-        user: 'ksquires'
-     )
+        user: 'root'
+      )
     end
   end
 end
